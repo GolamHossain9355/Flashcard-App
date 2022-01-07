@@ -17,11 +17,10 @@ export default function Cards({ currentDeck }) {
       setHasFlipped(!hasFlipped);
     }
     if (deckCardNumber > 2 && hasFlipped === true) {
-      if (
-        window.confirm(
-          "Restart cards? \n\n Click `cancel` to return to the home page"
-        )
-      ) {
+      const confirm = window.confirm(
+        "Restart cards? \n\n Click `cancel` to return to the home page"
+      );
+      if (confirm) {
         setDeckNumber(0);
         setHasFlipped(!hasFlipped);
       } else history.push("/");
