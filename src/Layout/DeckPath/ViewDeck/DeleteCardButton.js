@@ -1,12 +1,16 @@
 import { deleteCard } from "../../../utils/api";
 import { useHistory } from "react-router-dom";
 
-export default function DeleteCardButton({ cardId }) {
-  const history = useHistory();
+import { readDeck } from "../../../utils/api";
+
+export default function DeleteCardButton({ cardId, setCurrentDeck, deckId }) {
 
   const handleDeleteCardClick = () => {
     async function loadDeleteCard() {
+      setCurrentDeck({});
       await deleteCard(cardId);
+      const deckData = await readDeck(deckId);
+      setCurrentDeck(deckData);
     }
 
     const confirm = window.confirm(
@@ -15,7 +19,7 @@ export default function DeleteCardButton({ cardId }) {
 
     if (confirm) {
       loadDeleteCard();
-      history.go(0);
+
     }
   };
 

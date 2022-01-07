@@ -3,6 +3,7 @@ import { Link, useRouteMatch, useParams, useHistory } from "react-router-dom";
 
 import { readDeck, readCard, updateCard } from "../../utils/api";
 import LoaderAnimation from "../LoaderAnimation";
+import CardEditAndCreateForm from "./CardEditAndCreateForm";
 
 export default function CardEditScreen() {
   const { url } = useRouteMatch();
@@ -47,55 +48,14 @@ export default function CardEditScreen() {
 
   if (currentDeck.id && storedCardData.id) {
     return (
-      <div>
-        <nav aria-label="breadcrumb">
-          <ol className="breadcrumb">
-            <li className="breadcrumb-item">
-              <Link to="/">Home</Link>
-            </li>
-            <li className="breadcrumb-item">
-              <Link to={url}>{currentDeck.name}</Link>
-            </li>
-            <li className="breadcrumb-item active">Edit Card {cardId}</li>
-          </ol>
-        </nav>
-        <h1>Edit Card</h1>
-        <form onSubmit={handleUpdatedCardSubmit}>
-          <label htmlFor="front">Front</label>
-          <br />
-          <textarea
-            type="textarea"
-            id="front"
-            name="front"
-            placeholder="Front side of card"
-            style={{ width: "100%", height: "65px" }}
-            onChange={handleUpdatedChange}
-            value={storedCardData.front}
-          />
-          <label htmlFor="back">Back</label>
-          <br />
-          <textarea
-            type="textarea"
-            id="back"
-            name="back"
-            placeholder="Back side of card"
-            style={{ width: "100%", height: "65px" }}
-            onChange={handleUpdatedChange}
-            value={storedCardData.back}
-          />
-          <div className="d-flex mt-3">
-            <Link
-              to={`/decks/${deckId}`}
-              className="btn btn-secondary pr-4 pl-4 mr-2"
-            >
-              Cancel
-            </Link>
-            <button type="submit" className="btn btn-primary pr-4 pl-4">
-              Submit
-            </button>
-          </div>
-        </form>
-      </div>
+      <CardEditAndCreateForm
+        url={url}
+        deckId={deckId}
+        name={currentDeck.name}
+        handleSubmit={handleUpdatedCardSubmit}
+        handleChange={handleUpdatedChange}
+        cardData={storedCardData}
+      />
     );
   }
   return <LoaderAnimation />;

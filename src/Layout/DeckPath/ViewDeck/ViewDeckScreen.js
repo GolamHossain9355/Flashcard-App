@@ -10,10 +10,10 @@ export default function ViewDeckScreen() {
   const { deckId } = useParams();
   const {url} = useRouteMatch()
   const history = useHistory()
-
+  
   const [currentDeck, setCurrentDeck] = useState({});
   const id = currentDeck.id;
-
+  
   useEffect(() => {
     setCurrentDeck({});
     async function loadCurrentDeck() {
@@ -21,7 +21,6 @@ export default function ViewDeckScreen() {
       setCurrentDeck(deckData);
     }
     loadCurrentDeck();
-    history.push(url)
   }, []);
 
 
@@ -64,7 +63,7 @@ export default function ViewDeckScreen() {
           <DeleteDeckBTN deckId={deckId} checkLocation={"viewDeckScreen"}/>
         </div>
         <br />
-        <ListAllCardsForDeck cards={cards} />
+        <ListAllCardsForDeck cards={cards} setCurrentDeck={setCurrentDeck} deckId={deckId}/>
       </div>
     );
   }

@@ -2,7 +2,7 @@ import { Link, useRouteMatch } from "react-router-dom";
 
 import DeleteCardButton from "./DeleteCardButton";
 
-export default function ListAllCardsForDecks({ cards }) {
+export default function ListAllCardsForDecks({ cards, setCurrentDeck, deckId }) {
   const { url } = useRouteMatch();
 
   if (cards.length === 0) {
@@ -26,7 +26,11 @@ export default function ListAllCardsForDecks({ cards }) {
                 >
                   Edit
                 </Link>
-                <DeleteCardButton cardId={card.id} />
+                <DeleteCardButton
+                  cardId={card.id}
+                  deckId={deckId}
+                  setCurrentDeck={setCurrentDeck}
+                />
               </div>
             </div>
           </div>
