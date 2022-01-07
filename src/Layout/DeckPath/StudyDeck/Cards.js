@@ -36,6 +36,17 @@ export default function Cards({ currentDeck }) {
             Card {deckCardNumber + 1} of {currentDeck.length}
           </h5>
           <p className="card-text">{flipState ? card.back : card.front}</p>
+          {flipState ? (
+            <button
+              type="button"
+              className="btn btn-primary pr-4 pl-4 mr-2"
+              onClick={handleButtonClick}
+            >
+              Next
+            </button>
+          ) : (
+            ""
+          )}
           <button
             type="button"
             name="hasFlipped"
@@ -44,17 +55,6 @@ export default function Cards({ currentDeck }) {
           >
             Flip
           </button>
-          {flipState ? (
-            <button
-              type="button"
-              className="btn btn-primary pr-4 pl-4 ml-2"
-              onClick={handleButtonClick}
-            >
-              Next
-            </button>
-          ) : (
-            ""
-          )}
         </div>
       </div>
     </div>
