@@ -4,6 +4,7 @@ import { Link, useParams, useHistory, useRouteMatch } from "react-router-dom";
 import { readDeck } from "../../../utils/api";
 import ListAllCardsForDeck from "./ListAllCardsForDeck";
 import LoaderAnimation from "../../LoaderAnimation";
+import DeleteDeckBTN from "../../Home/DeleteDeckBTN"
 
 export default function ViewDeckScreen() {
   const { deckId } = useParams();
@@ -60,9 +61,7 @@ export default function ViewDeckScreen() {
               Add Cards
             </Link>
           </div>
-          <Link to="/" className="btn btn-danger pr-3 pl-3">
-            Delete
-          </Link>
+          <DeleteDeckBTN deckId={deckId} checkLocation={"viewDeckScreen"}/>
         </div>
         <br />
         <ListAllCardsForDeck cards={cards} />

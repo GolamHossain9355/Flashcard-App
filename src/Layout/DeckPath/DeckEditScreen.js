@@ -1,10 +1,11 @@
 import { useState, useEffect } from "react";
-import { Link, useRouteMatch, useParams } from "react-router-dom";
+import { Link, useRouteMatch, useParams, useHistory } from "react-router-dom";
 
 import { readDeck, updateDeck } from "../../utils/api";
 import LoaderAnimation from "../LoaderAnimation";
 
 export default function DeckEditScreen() {
+  const history = useHistory()
   const { url } = useRouteMatch();
   const { deckId } = useParams();
 
@@ -34,6 +35,7 @@ export default function DeckEditScreen() {
     event.preventDefault();
     async function loadEditedDeck() {
       await updateDeck(toEditFormData);
+      history.push(`/decks/${deckId}`)
     }
     loadEditedDeck();
   };

@@ -61,9 +61,8 @@ export default function Home() {
                   </Link>
                 </div>
                 <DeleteDeckBTN
-                  DeleteIndex={index}
-                  allDecks={allDecks}
                   deckId={deck.id}
+                  setAllDecks={setAllDecks}
                 />
               </div>
             </div>

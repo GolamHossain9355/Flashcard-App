@@ -1,17 +1,30 @@
 import { useHistory } from "react-router-dom";
 import { deleteDeck } from "../../utils/api";
 
-export default function DeleteDeckBTN({ deckId }) {
+import { listDecks } from "../../utils/api";
+
+export default function DeleteDeckBTN({
+  deckId,
+  checkLocation = "",
+  setAllDecks,
+}) {
   const history = useHistory();
 
   const handleDeleteBTNClick = () => {
-    const confirmClick = window.confirm(
+    const confirm = window.confirm(
       "Delete this Deck \n\n You will not be able to recover it."
     );
 
-    if (confirmClick) {
-      deleteDeck(deckId).then((resp) => history.go(0));
+    async function loadDeleteBTN() {
+      await deleteDeck(deckId);
+      if (checkLocation.length > 0) {
+        history.push("/");
+      } else {
+        const data = await listDecks();
+        setAllDecks(data);
+      }
     }
+    if (confirm) loadDeleteBTN();
   };
 
   return (
