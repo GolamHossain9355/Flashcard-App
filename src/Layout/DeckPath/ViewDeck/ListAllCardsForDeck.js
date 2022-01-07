@@ -17,9 +17,9 @@ export default function ListAllCardsForDecks({ cards }) {
             <div className="card-body">
               <div className="d-flex justify-content-between">
                 <p className="card-text col-6">{card.front}</p>
-                <p className="card-text">{card.back}</p>
+                <p className="card-text col-6">{card.back}</p>
               </div>
-              <div className="d-flex justify-content-end">
+              <div className="d-flex justify-content-end mt-3">
                 <Link
                   to={`${url}/cards/${card.id}/edit`}
                   className="btn btn-secondary pr-4 pl-4 mr-2"

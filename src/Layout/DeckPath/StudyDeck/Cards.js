@@ -16,7 +16,7 @@ export default function Cards({ currentDeck }) {
       setDeckNumber(deckCardNumber + 1);
       setHasFlipped(!hasFlipped);
     }
-    if (deckCardNumber > 2 && hasFlipped === true) {
+    if (deckCardNumber === currentDeck.length - 1 && hasFlipped === true) {
       const confirm = window.confirm(
         "Restart cards? \n\n Click `cancel` to return to the home page"
       );

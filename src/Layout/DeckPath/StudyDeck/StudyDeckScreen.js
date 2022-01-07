@@ -1,11 +1,24 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { useRouteMatch, Link } from "react-router-dom";
 
 import Cards from "./Cards";
 import LoaderAnimation from "../../LoaderAnimation";
+import { readDeck } from "../../../utils/api";
 
-export default function StudyDeckScreen({ currentDeck }) {
+export default function StudyDeckScreen({ deckId }) {
   const { url } = useRouteMatch();
+
+  const [currentDeck, setCurrentDeck] = useState({});
+
+  useEffect(() => {
+    setCurrentDeck({});
+    async function loadDeck() {
+      const data = await readDeck(deckId);
+      setCurrentDeck(data);
+    }
+    loadDeck();
+  }, []);
+
   if (currentDeck.id) {
     return (
       <div>
@@ -43,5 +56,5 @@ export default function StudyDeckScreen({ currentDeck }) {
       </div>
     );
   }
-  return <LoaderAnimation />
+  return <LoaderAnimation />;
 }
