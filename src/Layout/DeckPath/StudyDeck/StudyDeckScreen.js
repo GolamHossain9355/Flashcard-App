@@ -32,9 +32,12 @@ export default function StudyDeckScreen({ currentDeck }) {
               You need at least 3 cards to study. There are{" "}
               {currentDeck.cards.length} cards in this deck.
             </p>
-            <button type="button" className="btn btn-primary pr-4 pl-4">
+            <Link
+              to={`/decks/${currentDeck.id}/cards/new`}
+              className="btn btn-primary pr-4 pl-4"
+            >
               Add Cards
-            </button>
+            </Link>
           </div>
         )}
       </div>

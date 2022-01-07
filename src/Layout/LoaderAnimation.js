@@ -1,16 +1,16 @@
 import { useState, useEffect } from "react";
 
 export default function LoaderAnimation() {
-  const [progressbarWidthNumber, setProgressBarWidthNumber] = useState(0);
+  const [progressbarWidthNumber, setProgressBarWidthNumber] = useState(1);
 
   useEffect(() => {
-    if (progressbarWidthNumber < 76) {
-      setProgressBarWidthNumber(progressbarWidthNumber + 3);
+    if (progressbarWidthNumber < 98) {
+      setProgressBarWidthNumber(progressbarWidthNumber + 2);
     }
   }, [progressbarWidthNumber]);
 
   return (
-    <div>
+    <div className="">
       <div className="progress">
         <div
           className="progress-bar progress-bar-striped progress-bar-animated"

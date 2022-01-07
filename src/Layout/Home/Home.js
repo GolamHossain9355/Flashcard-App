@@ -69,9 +69,8 @@ export default function Home() {
             </div>
           </div>
         ))}
-        <br />
       </div>
     );
   }
-  return <LoaderAnimation />;
+  return <LoaderAnimation />
 }
