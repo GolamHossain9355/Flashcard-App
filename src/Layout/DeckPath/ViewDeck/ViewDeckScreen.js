@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { Link, useParams, useHistory, useRouteMatch } from "react-router-dom";
+import { Link, useParams} from "react-router-dom";
 
 import { readDeck } from "../../../utils/api";
 import ListAllCardsForDeck from "./ListAllCardsForDeck";
@@ -8,8 +8,6 @@ import DeleteDeckBTN from "../../Home/DeleteDeckBTN"
 
 export default function ViewDeckScreen() {
   const { deckId } = useParams();
-  const {url} = useRouteMatch()
-  const history = useHistory()
   
   const [currentDeck, setCurrentDeck] = useState({});
   const id = currentDeck.id;

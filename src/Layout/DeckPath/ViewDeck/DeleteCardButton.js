@@ -4,7 +4,6 @@ import { useHistory } from "react-router-dom";
 import { readDeck } from "../../../utils/api";
 
 export default function DeleteCardButton({ cardId, setCurrentDeck, deckId }) {
-
   const handleDeleteCardClick = () => {
     async function loadDeleteCard() {
       setCurrentDeck({});
@@ -19,7 +18,6 @@ export default function DeleteCardButton({ cardId, setCurrentDeck, deckId }) {
 
     if (confirm) {
       loadDeleteCard();
-
     }
   };
 
