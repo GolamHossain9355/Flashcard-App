@@ -1,13 +1,13 @@
 import { useState, useEffect } from "react";
 
 export default function LoaderAnimation() {
-  const [progressbarWidthNumber, setProgressBarWidthNumber] = useState(1);
+  const [widthValueForProgressbar, setWidthValueForProgressbar] = useState(1);
 
   useEffect(() => {
-    if (progressbarWidthNumber < 98) {
-      setProgressBarWidthNumber(progressbarWidthNumber + 2);
+    if (widthValueForProgressbar < 98) {
+      setWidthValueForProgressbar(widthValueForProgressbar + 2);
     }
-  }, [progressbarWidthNumber]);
+  }, [widthValueForProgressbar]);
 
   return (
     <div className="">
@@ -16,10 +16,10 @@ export default function LoaderAnimation() {
           className="progress-bar progress-bar-striped progress-bar-animated"
           style={{
             role: "progressbar",
-            ariaValuenow: `${progressbarWidthNumber}`,
+            ariaValuenow: `${widthValueForProgressbar}`,
             ariaValuemin: "0",
             ariaValuemax: "100",
-            width: `${progressbarWidthNumber}%`,
+            width: `${widthValueForProgressbar}%`,
           }}
         ></div>
       </div>

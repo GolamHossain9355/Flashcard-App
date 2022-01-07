@@ -10,7 +10,7 @@ function Layout() {
   return (
     <div>
       <Header />
-      <div className="container col-5">
+      <div className="container col-6">
         <Switch>
           <Route exact path="/">
             <Home />
