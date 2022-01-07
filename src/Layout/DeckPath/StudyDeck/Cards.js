@@ -11,7 +11,6 @@ export default function Cards({ currentDeck }) {
     setHasFlipped(!hasFlipped);
   };
 
-
   const handleNextClick = () => {
     if (deckCardNumber < currentDeck.length - 1 && hasFlipped === true) {
       setDeckNumber(deckCardNumber + 1);
