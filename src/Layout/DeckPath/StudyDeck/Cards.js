@@ -3,26 +3,28 @@ import { useHistory } from "react-router-dom";
 
 export default function Cards({ currentDeck }) {
   const history = useHistory();
-  const initialFlipState = false;
 
-  const [flipState, setFlipState] = useState(initialFlipState);
+  const [hasFlipped, setHasFlipped] = useState(false);
   const [deckCardNumber, setDeckNumber] = useState(0);
 
-  const handleButtonClick = () => {
-    if (deckCardNumber < currentDeck.length - 1 && flipState === true) {
+  const handleFlipClick = () => {
+    setHasFlipped(!hasFlipped);
+  };
+
+
+  const handleNextClick = () => {
+    if (deckCardNumber < currentDeck.length - 1 && hasFlipped === true) {
       setDeckNumber(deckCardNumber + 1);
-      setFlipState(!flipState);
-    } else {
-      setFlipState(!flipState);
+      setHasFlipped(!hasFlipped);
     }
-    if (deckCardNumber === currentDeck.length - 1 && flipState === true) {
+    if (deckCardNumber > 2 && hasFlipped === true) {
       if (
         window.confirm(
           "Restart cards? \n\n Click `cancel` to return to the home page"
         )
       ) {
         setDeckNumber(0);
-        setFlipState(!flipState);
+        setHasFlipped(!hasFlipped);
       } else history.push("/");
     }
   };
@@ -35,12 +37,12 @@ export default function Cards({ currentDeck }) {
           <h5 className="card-title">
             Card {deckCardNumber + 1} of {currentDeck.length}
           </h5>
-          <p className="card-text">{flipState ? card.back : card.front}</p>
-          {flipState ? (
+          <p className="card-text">{hasFlipped ? card.back : card.front}</p>
+          {hasFlipped ? (
             <button
               type="button"
               className="btn btn-primary pr-4 pl-4 mr-2"
-              onClick={handleButtonClick}
+              onClick={handleNextClick}
             >
               Next
             </button>
@@ -51,7 +53,7 @@ export default function Cards({ currentDeck }) {
             type="button"
             name="hasFlipped"
             className="btn btn-secondary pr-4 pl-4"
-            onClick={handleButtonClick}
+            onClick={handleFlipClick}
           >
             Flip
           </button>
