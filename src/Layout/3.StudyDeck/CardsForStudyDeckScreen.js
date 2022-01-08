@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { useHistory } from "react-router-dom";
 
 export default function CardsForStudyDeckScreen({ currentDeck }) {
-  //declaring a history variable to use when the user confirms to eith restart deck or not
+  //declaring a history variable to use when the user confirms to either restart deck or not
   const history = useHistory();
 
   //*declaring state to check if the user clicked flip

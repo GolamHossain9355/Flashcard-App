@@ -3,15 +3,15 @@ import { Switch, Route, useRouteMatch, useParams } from "react-router-dom";
 
 import StudyDeckScreen from "./3.StudyDeck/StudyDeckScreen";
 import ViewDeckScreen from "./4.ViewDeck/ViewDeckScreen";
-import DeckEditScreen from "./6.DeckCreateAndEdit/DeckEditScreen";
-import CardCreateScreen from "./5.CardCreateAndEdit/CardCreateScreen";
-import CardEditScreen from "./5.CardCreateAndEdit/CardEditScreen";
+import DeckEditScreen from "./5.DeckCreateAndEdit/DeckEditScreen";
+import CardCreateScreen from "./6.CardCreateAndEdit/CardCreateScreen";
+import CardEditScreen from "./6.CardCreateAndEdit/CardEditScreen";
 
 export default function DeckPath() {
   const { path } = useRouteMatch();
   const { deckId } = useParams();
 
-  //*all of the rounting for routing after home screen apart from createDecks Route
+  //*all of the rounting for routing after home screen, apart from createDecks Route
   return (
     <Switch>
       <Route exact path={path}>

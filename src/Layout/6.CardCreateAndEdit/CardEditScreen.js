@@ -14,6 +14,7 @@ export default function CardEditScreen() {
   const [currentDeck, setCurrentDeck] = useState({});
   const [storedCardData, setStoredCardData] = useState({});
 
+  //*getting the deck data to add the card to
   useEffect(() => {
     async function loadCurrentDeck() {
       const data = await readDeck(deckId);
@@ -22,6 +23,7 @@ export default function CardEditScreen() {
     loadCurrentDeck();
   }, []);
 
+  //*getting the card from the deck to edit
   useEffect(() => {
     async function loadStoredCardData() {
       const data = await readCard(cardId);
@@ -30,6 +32,7 @@ export default function CardEditScreen() {
     loadStoredCardData();
   }, []);
 
+  //*getting the new edited card data from the user 
   const handleUpdatedChange = ({ target }) => {
     setStoredCardData({
       ...storedCardData,
@@ -37,6 +40,10 @@ export default function CardEditScreen() {
     });
   };
 
+  /*
+  *updating the card with the new data after the user clicks submit
+  *and taking the user to the deck screen
+  */
   const handleUpdatedCardSubmit = (event) => {
     event.preventDefault();
     async function loadUpdatedCard() {
@@ -46,6 +53,7 @@ export default function CardEditScreen() {
     loadUpdatedCard();
   };
 
+  //an if check to see if the Deck and the Card information has returned or not
   if (currentDeck.id && storedCardData.id) {
     return (
       <FormForCardCreateAndEdit
@@ -55,8 +63,10 @@ export default function CardEditScreen() {
         handleSubmit={handleUpdatedCardSubmit}
         handleChange={handleUpdatedChange}
         cardData={storedCardData}
+        cardId= {cardId}
       />
     );
   }
+  //loading animation before api call returns value for the old deck data
   return <LoaderAnimation />;
 }

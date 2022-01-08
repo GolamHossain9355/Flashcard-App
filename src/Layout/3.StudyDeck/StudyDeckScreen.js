@@ -35,7 +35,9 @@ export default function StudyDeckScreen({ deckId }) {
         <nav aria-label="breadcrumb">
           <ol className="breadcrumb">
             <li className="breadcrumb-item">
-              <Link to="/">Home</Link>
+              <Link to="/">
+                Home
+              </Link>
             </li>
             <li className="breadcrumb-item">
               <Link to={url}>{currentDeck.name}</Link>

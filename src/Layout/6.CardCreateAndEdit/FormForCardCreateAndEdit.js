@@ -8,6 +8,7 @@ export default function FormForCardEditAndCreate({
   handleSubmit,
   handleChange,
   cardData,
+  cardId
 }) {
   /*
    *Declaring text variables that will change depending on weather
@@ -15,13 +16,19 @@ export default function FormForCardEditAndCreate({
    */
   let doneOrCancelText = "";
   let saveOrSubmitText = "";
+  let addOrEditCardText = ""
+  let cardEditOrCreateHeaderText = ""
 
   if (url.split().includes(`/decks/${deckId}/cards/new`)) {
     doneOrCancelText = "Done";
     saveOrSubmitText = "Save";
+    addOrEditCardText = "Add Card"
+    cardEditOrCreateHeaderText = `${name}: Add Card`
   } else {
     doneOrCancelText = "Cancel";
     saveOrSubmitText = "Submit";
+    addOrEditCardText = `Edit Card ${cardId}`
+    cardEditOrCreateHeaderText = "Edit Card"
   }
 
   return (
@@ -34,10 +41,10 @@ export default function FormForCardEditAndCreate({
           <li className="breadcrumb-item">
             <Link to={url}>{name}</Link>
           </li>
-          <li className="breadcrumb-item active">Add Card</li>
+          <li className="breadcrumb-item active">{addOrEditCardText}</li>
         </ol>
       </nav>
-      <h1>{name}: Add Card</h1>
+      <h1>{cardEditOrCreateHeaderText}</h1>
       <form onSubmit={handleSubmit}>
         <label htmlFor="front">Front</label>
         <br />

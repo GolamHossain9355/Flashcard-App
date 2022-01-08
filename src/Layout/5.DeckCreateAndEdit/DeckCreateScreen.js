@@ -11,6 +11,7 @@ export default function DeckCreateScreen() {
     description: "",
   };
 
+  //creating the new deck data
   const [newDeckData, setNewDeckData] = useState(initialDeckData);
   const handleNewDataChange = ({ target }) => {
     setNewDeckData({
@@ -19,6 +20,11 @@ export default function DeckCreateScreen() {
     });
   };
 
+  /*
+  *creating a new deck with the new data after the user 
+  *clicks submit on the deck create screen, than taking the user
+  *to the deck screen
+  */
   const handleSubmitClick = (event) => {
     event.preventDefault();
     async function creatingDeck() {

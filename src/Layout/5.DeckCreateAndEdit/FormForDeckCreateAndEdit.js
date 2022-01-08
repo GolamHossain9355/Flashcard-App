@@ -1,11 +1,24 @@
-import { Link } from "react-router-dom";
+import { Link, useRouteMatch } from "react-router-dom";
 
 //created a form componant to use in deck create/edit screens
 export default function FormForDeckCreateAndEdit({
   handleSubmit,
   handleChange,
   formData,
+  location,
 }) {
+  const { url } = useRouteMatch();
+
+  /*
+  *declaring a dynamic text variable, the value depends on 
+  *the location(either edit or create deck screen)
+  */
+  let  createOrEditDeckText = ""
+
+  if (location === "edit") {
+    createOrEditDeckText = "Edit Deck"
+  } else createOrEditDeckText = "Create Deck"
+  
   return (
     <div>
       <nav aria-label="breadcrumb">
@@ -13,10 +26,19 @@ export default function FormForDeckCreateAndEdit({
           <li className="breadcrumb-item">
             <Link to="/">Home</Link>
           </li>
-          <li className="breadcrumb-item active">Create Deck</li>
+          {location == "edit" ? (
+            <>
+              <li className="breadcrumb-item">
+                <Link to={url}>{formData.name}</Link>
+              </li>
+            </>
+          ) : (
+            <></>
+          )}
+          <li className="breadcrumb-item active">{createOrEditDeckText}</li>
         </ol>
       </nav>
-      <h1>Create Deck</h1>
+      <h1>{createOrEditDeckText}</h1>
       <form onSubmit={handleSubmit}>
         <label htmlFor="name">Name</label>
         <br />

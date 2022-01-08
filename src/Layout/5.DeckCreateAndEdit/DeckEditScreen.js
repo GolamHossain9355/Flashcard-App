@@ -11,19 +11,16 @@ export default function DeckEditScreen() {
 
   const [oldDeckDataToEdit, setOldDeckDataToEdit] = useState({});
 
+  //*getting the old deck data from the api
   useEffect(() => {
     async function loadDeckDataToEdit() {
       const dataToEdit = await readDeck(deckId);
-      setOldDeckDataToEdit({
-        id: dataToEdit.id,
-        name: dataToEdit.name,
-        description: dataToEdit.description,
-        cards: dataToEdit.cards,
-      });
+      setOldDeckDataToEdit(dataToEdit);
     }
     loadDeckDataToEdit();
   }, []);
 
+  //*putting the new data in
   const handleEditedChange = ({ target }) => {
     setOldDeckDataToEdit({
       ...oldDeckDataToEdit,
@@ -31,6 +28,7 @@ export default function DeckEditScreen() {
     });
   };
 
+  //*updating the deck after the user clicks submit than taking the user to the deck screen
   const handleEditedSubmitClick = (event) => {
     event.preventDefault();
     async function loadEditedDeck() {
@@ -40,15 +38,18 @@ export default function DeckEditScreen() {
     loadEditedDeck();
   };
 
+  //adding an if check to see if the api call has returned or not
   if (oldDeckDataToEdit.id) {
     return (
       <FormForDeckCreateAndEdit
         handleSubmit={handleEditedSubmitClick}
         handleChange={handleEditedChange}
         formData={oldDeckDataToEdit}
+        location="edit"
       />
     );
   }
 
+  //loading animation before api call returns value for the old deck data
   return <LoaderAnimation />;
 }

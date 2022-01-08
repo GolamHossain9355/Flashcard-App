@@ -17,6 +17,7 @@ export default function CardCreateScreen() {
   const [newCardData, setNewCardData] = useState(initialCardData);
   const [deckToAddCardTo, setDeckToAddCardTo] = useState({});
 
+  //*getting the deck data to add the card to
   useEffect(() => {
     async function loadDeckToAddCardTo() {
       const data = await readDeck(deckId);
@@ -25,6 +26,7 @@ export default function CardCreateScreen() {
     loadDeckToAddCardTo();
   }, []);
 
+  //getting the new card data from the user
   const handleChange = ({ target }) => {
     setNewCardData({
       ...newCardData,
@@ -32,21 +34,20 @@ export default function CardCreateScreen() {
     });
   };
 
+  //*adding the new card data to the deck after the user clicks save button
   const handleCardAddSubmit = (event) => {
     event.preventDefault();
 
     async function loadNewCardData() {
       await createCard(deckId, newCardData);
+      setNewCardData(initialCardData);
     }
     loadNewCardData();
-    setNewCardData(initialCardData);
   };
 
+  //an if check to see if the deck information has returned or not
   if (deckToAddCardTo.id) {
     let name = deckToAddCardTo.name;
-    if (deckToAddCardTo.name.length === 0) {
-      name = "No Deck Name";
-    }
 
     return (
       <FormForCardCreateAndEdit
@@ -60,5 +61,6 @@ export default function CardCreateScreen() {
     );
   }
 
+  //loading animation before api call returns value for the old deck data
   return <LoaderAnimation />;
 }
