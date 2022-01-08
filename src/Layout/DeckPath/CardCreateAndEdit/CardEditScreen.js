@@ -1,9 +1,9 @@
 import { useState, useEffect } from "react";
 import { Link, useRouteMatch, useParams, useHistory } from "react-router-dom";
 
-import { readDeck, readCard, updateCard } from "../../utils/api";
-import LoaderAnimation from "../LoaderAnimation";
-import CardEditAndCreateForm from "./CardEditAndCreateForm";
+import { readDeck, readCard, updateCard } from "../../../utils/api";
+import LoaderAnimation from "../../LoaderAnimation";
+import FormForCardEditAndCreate from "./FormForCardEditAndCreate";
 
 export default function CardEditScreen() {
   const { url } = useRouteMatch();
@@ -48,7 +48,7 @@ export default function CardEditScreen() {
 
   if (currentDeck.id && storedCardData.id) {
     return (
-      <CardEditAndCreateForm
+      <FormForCardEditAndCreate
         url={url}
         deckId={deckId}
         name={currentDeck.name}

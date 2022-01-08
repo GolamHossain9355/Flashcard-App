@@ -3,9 +3,10 @@ import { Switch, Route, useRouteMatch, useParams } from "react-router-dom";
 
 import StudyDeckScreen from "./StudyDeck/StudyDeckScreen";
 import ViewDeckScreen from "./ViewDeck/ViewDeckScreen";
-import DeckEditScreen from "./DeckEditScreen";
-import CardCreateScreen from "./CardCreateScreen";
-import CardEditScreen from "./CardEditScreen";
+import DeckEditScreen from "./DeckCreateAndEdit/DeckEditScreen";
+import CardCreateScreen from "./CardCreateAndEdit/CardCreateScreen";
+import CardEditScreen from "./CardCreateAndEdit/CardEditScreen";
+
 
 export default function DeckPath() {
   const { path } = useRouteMatch();

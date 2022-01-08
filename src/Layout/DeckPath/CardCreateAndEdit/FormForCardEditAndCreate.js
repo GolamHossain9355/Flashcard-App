@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
 
-export default function CardEditAndCreateForm({
+export default function FormForCardEditAndCreate({
   url,
   deckId,
   name,
@@ -39,6 +39,7 @@ export default function CardEditAndCreateForm({
           type="textarea"
           id="front"
           name="front"
+          required={true}
           placeholder="Front side of card"
           style={{ width: "100%", height: "65px" }}
           onChange={handleChange}
@@ -50,6 +51,7 @@ export default function CardEditAndCreateForm({
           type="textarea"
           id="back"
           name="back"
+          required={true}
           placeholder="Back side of card"
           style={{ width: "100%", height: "65px" }}
           onChange={handleChange}

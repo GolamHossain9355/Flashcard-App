@@ -4,7 +4,7 @@ import Header from "./Header";
 import NotFound from "./NotFound";
 import Home from "./Home/Home";
 import DeckPath from "./DeckPath/DeckPath";
-import DeckCreateScreen from "./DeckPath/DeckCreateScreen";
+import DeckCreateScreen from "./DeckPath/DeckCreateAndEdit/DeckCreateScreen";
 
 function Layout() {
   return (

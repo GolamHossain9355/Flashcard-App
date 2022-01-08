@@ -1,9 +1,9 @@
 import { useState, useEffect } from "react";
-import { Link, useRouteMatch, useParams } from "react-router-dom";
+import { useRouteMatch, useParams } from "react-router-dom";
 
-import { readDeck, createCard } from "../../utils/api";
-import LoaderAnimation from "../LoaderAnimation";
-import CardEditAndCreateForm from "./CardEditAndCreateForm";
+import { readDeck, createCard } from "../../../utils/api";
+import LoaderAnimation from "../../LoaderAnimation";
+import FormForCardEditAndCreate from "./FormForCardEditAndCreate";
 
 export default function CardCreateScreen() {
   const { url } = useRouteMatch();
@@ -49,7 +49,7 @@ export default function CardCreateScreen() {
     }
 
     return (
-      <CardEditAndCreateForm
+      <FormForCardEditAndCreate
         url={url}
         deckId={deckId}
         name={name}
