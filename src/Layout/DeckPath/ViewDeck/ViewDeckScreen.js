@@ -1,17 +1,23 @@
 import React, { useState, useEffect } from "react";
-import { Link, useParams} from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 
 import { readDeck } from "../../../utils/api";
 import ListAllCardsForDeck from "./ListAllCardsForDeck";
 import LoaderAnimation from "../../LoaderAnimation";
-import DeleteDeckBTN from "../../Home/DeleteDeckBTN"
+import DeleteDeckBTN from "../../Home/DeleteDeckBTN";
 
 export default function ViewDeckScreen() {
+  //deckId to use in the links
   const { deckId } = useParams();
-  
+
+  /*
+   *declared a state variable to get the current deck
+   *information after the user clicks view from the home screen
+   */
   const [currentDeck, setCurrentDeck] = useState({});
   const id = currentDeck.id;
-  
+
+  //getting the current deck information
   useEffect(() => {
     setCurrentDeck({});
     async function loadCurrentDeck() {
@@ -21,8 +27,7 @@ export default function ViewDeckScreen() {
     loadCurrentDeck();
   }, []);
 
-
-
+  //*checks if the api call for the deck information from readDeck has returned or not
   if (id) {
     const cards = currentDeck.cards;
     return (
@@ -58,12 +63,18 @@ export default function ViewDeckScreen() {
               Add Cards
             </Link>
           </div>
-          <DeleteDeckBTN deckId={deckId} checkLocation={"viewDeckScreen"}/>
+          <DeleteDeckBTN deckId={deckId} checkLocation={"viewDeckScreen"} />
         </div>
         <br />
-        <ListAllCardsForDeck cards={cards} setCurrentDeck={setCurrentDeck} deckId={deckId}/>
+        <ListAllCardsForDeck
+          cards={cards}
+          setCurrentDeck={setCurrentDeck}
+          deckId={deckId}
+        />
       </div>
     );
   }
-  return <LoaderAnimation />
+
+  //Loading animation while the api call is being made
+  return <LoaderAnimation />;
 }

@@ -1,15 +1,24 @@
 import React, { useEffect, useState } from "react";
 import { useRouteMatch, Link } from "react-router-dom";
 
-import Cards from "./Cards";
+import CardsForStudyDeckScreen from "./CardsForStudyDeckScreen";
 import LoaderAnimation from "../../LoaderAnimation";
 import { readDeck } from "../../../utils/api";
 
 export default function StudyDeckScreen({ deckId }) {
+  /*
+  getting the current url to use in the deck name breadcrumb 
+  link as a redundant path so it wont do anything
+  */
   const { url } = useRouteMatch();
 
+  /*
+   *declared a state variable to get the current deck
+   *information after the user clicks study from the home screen
+   */
   const [currentDeck, setCurrentDeck] = useState({});
 
+  //getting the current deck information
   useEffect(() => {
     setCurrentDeck({});
     async function loadDeck() {
@@ -19,6 +28,7 @@ export default function StudyDeckScreen({ deckId }) {
     loadDeck();
   }, []);
 
+  //*checks if the api call for the deck information from readDeck has returned or not
   if (currentDeck.id) {
     return (
       <div>
@@ -37,7 +47,7 @@ export default function StudyDeckScreen({ deckId }) {
         </nav>
         <h1>{currentDeck.name}: Study</h1>
         {currentDeck.cards.length > 2 ? (
-          <Cards currentDeck={currentDeck.cards} />
+          <CardsForStudyDeckScreen currentDeck={currentDeck.cards} />
         ) : (
           <div>
             <h3 className="text-danger">Not enough cards</h3>
@@ -56,5 +66,7 @@ export default function StudyDeckScreen({ deckId }) {
       </div>
     );
   }
+
+  //Loading animation while the api call is being made
   return <LoaderAnimation />;
 }

@@ -3,7 +3,7 @@ import { useRouteMatch, useParams } from "react-router-dom";
 
 import { readDeck, createCard } from "../../../utils/api";
 import LoaderAnimation from "../../LoaderAnimation";
-import FormForCardEditAndCreate from "./FormForCardEditAndCreate";
+import FormForCardCreateAndEdit from "./FormForCardCreateAndEdit";
 
 export default function CardCreateScreen() {
   const { url } = useRouteMatch();
@@ -49,7 +49,7 @@ export default function CardCreateScreen() {
     }
 
     return (
-      <FormForCardEditAndCreate
+      <FormForCardCreateAndEdit
         url={url}
         deckId={deckId}
         name={name}

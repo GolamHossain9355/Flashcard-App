@@ -6,15 +6,15 @@ import LoaderAnimation from "../../LoaderAnimation";
 import FormForDeckCreateAndEdit from "./FormForDeckCreateAndEdit";
 
 export default function DeckEditScreen() {
-  const history = useHistory()
+  const history = useHistory();
   const { deckId } = useParams();
 
-  const [toEditFormData, setToEditFormData] = useState({});
+  const [oldDeckDataToEdit, setOldDeckDataToEdit] = useState({});
 
   useEffect(() => {
     async function loadDeckDataToEdit() {
       const dataToEdit = await readDeck(deckId);
-      setToEditFormData({
+      setOldDeckDataToEdit({
         id: dataToEdit.id,
         name: dataToEdit.name,
         description: dataToEdit.description,
@@ -25,8 +25,8 @@ export default function DeckEditScreen() {
   }, []);
 
   const handleEditedChange = ({ target }) => {
-    setToEditFormData({
-      ...toEditFormData,
+    setOldDeckDataToEdit({
+      ...oldDeckDataToEdit,
       [target.name]: target.value,
     });
   };
@@ -34,18 +34,20 @@ export default function DeckEditScreen() {
   const handleEditedSubmitClick = (event) => {
     event.preventDefault();
     async function loadEditedDeck() {
-      await updateDeck(toEditFormData);
-      history.push(`/decks/${deckId}`)
+      await updateDeck(oldDeckDataToEdit);
+      history.push(`/decks/${deckId}`);
     }
     loadEditedDeck();
   };
 
-  if (toEditFormData.id) {
-    return <FormForDeckCreateAndEdit 
-    handleSubmit={handleEditedSubmitClick}
-    handleChange={handleEditedChange}
-    formData={toEditFormData}
-    />
+  if (oldDeckDataToEdit.id) {
+    return (
+      <FormForDeckCreateAndEdit
+        handleSubmit={handleEditedSubmitClick}
+        handleChange={handleEditedChange}
+        formData={oldDeckDataToEdit}
+      />
+    );
   }
 
   return <LoaderAnimation />;

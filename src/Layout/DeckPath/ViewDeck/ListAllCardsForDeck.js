@@ -7,11 +7,10 @@ export default function ListAllCardsForDecks({
   setCurrentDeck,
   deckId,
 }) {
-
-  //edit button url
+  //edit button url to use in links
   const { url } = useRouteMatch();
-  
-  //declaring dynamic word variables for adding cards warning (line 56)
+
+  //*declaring dynamic word variables for adding cards warning (line 56)
   let cardOrCardsText = "card";
   let isOrAreText = "is";
 
@@ -20,7 +19,7 @@ export default function ListAllCardsForDecks({
     isOrAreText = "are";
   }
 
-  //added a cards needed warning
+  //*added a cards needed warning
   if (cards.length === 0) {
     return <h5 className="text-danger">No Cards Added Yet</h5>;
   }
@@ -53,6 +52,7 @@ export default function ListAllCardsForDecks({
           </div>
         </div>
       ))}
+      //*added warning to add more cards to be able to study
       {cards.length < 3 ? (
         <p className="text-warning bg-dark mt-4">
           You need at least 3 cards to study. There {isOrAreText} {cards.length}{" "}

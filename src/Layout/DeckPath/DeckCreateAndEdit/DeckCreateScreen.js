@@ -6,15 +6,15 @@ import FormForDeckCreateAndEdit from "./FormForDeckCreateAndEdit";
 
 export default function DeckCreateScreen() {
   const history = useHistory();
-  const initialDeckFormData = {
+  const initialDeckData = {
     name: "",
     description: "",
   };
 
-  const [deckFormData, setDeckFormData] = useState(initialDeckFormData);
-  const handleChange = ({ target }) => {
-    setDeckFormData({
-      ...deckFormData,
+  const [newDeckData, setNewDeckData] = useState(initialDeckData);
+  const handleNewDataChange = ({ target }) => {
+    setNewDeckData({
+      ...newDeckData,
       [target.name]: target.value,
     });
   };
@@ -22,7 +22,7 @@ export default function DeckCreateScreen() {
   const handleSubmitClick = (event) => {
     event.preventDefault();
     async function creatingDeck() {
-      const data = await createDeck(deckFormData);
+      const data = await createDeck(newDeckData);
       history.push(`/decks/${data.id}`);
     }
     creatingDeck();
@@ -31,8 +31,8 @@ export default function DeckCreateScreen() {
   return (
     <FormForDeckCreateAndEdit
       handleSubmit={handleSubmitClick}
-      handleChange={handleChange}
-      formData={deckFormData}
+      handleChange={handleNewDataChange}
+      formData={newDeckData}
     />
   );
 }

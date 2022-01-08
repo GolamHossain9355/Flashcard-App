@@ -7,6 +7,7 @@ import DeckPath from "./DeckPath/DeckPath";
 import DeckCreateScreen from "./DeckPath/DeckCreateAndEdit/DeckCreateScreen";
 
 function Layout() {
+  //*routing to home screen and deckCreate screens and deckPath(this routes to all other files)
   return (
     <div>
       <Header />

@@ -3,6 +3,10 @@ import { deleteCard } from "../../../utils/api";
 import { readDeck } from "../../../utils/api";
 
 export default function DeleteCardButton({ cardId, setCurrentDeck, deckId }) {
+  /*
+   *handles the delete click event and then re-renders
+   *the state variable to show the new information
+   */
   const handleDeleteCardClick = () => {
     async function loadDeleteCard() {
       setCurrentDeck({});

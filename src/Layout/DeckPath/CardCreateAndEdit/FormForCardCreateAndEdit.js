@@ -1,5 +1,6 @@
 import { Link } from "react-router-dom";
 
+//Created a form compopant to use in card create/edit screens
 export default function FormForCardEditAndCreate({
   url,
   deckId,
@@ -8,8 +9,13 @@ export default function FormForCardEditAndCreate({
   handleChange,
   cardData,
 }) {
+  /*
+   *Declaring text variables that will change depending on weather
+   *the user is in the card edit or create screen (line 20 and 68-75)
+   */
   let doneOrCancelText = "";
   let saveOrSubmitText = "";
+
   if (url.split().includes(`/decks/${deckId}/cards/new`)) {
     doneOrCancelText = "Done";
     saveOrSubmitText = "Save";

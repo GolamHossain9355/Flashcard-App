@@ -10,7 +10,7 @@ export default function DeleteDeckBTN({
 }) {
   const history = useHistory();
 
-  //handles the delete button confirm warning 
+  //handles the delete button confirm warning
   const handleDeleteBTNClick = () => {
     const confirm = window.confirm(
       "Delete this Deck \n\n You will not be able to recover it."
@@ -19,14 +19,15 @@ export default function DeleteDeckBTN({
     async function loadDeleteBTN() {
       await deleteDeck(deckId);
       /*
-      used this delete button on multiple pages. this basically checks if the user is deleting the 
-      deck from the Home or the ViewDeckScreen inside deckPath folder2
-      */
+       *used this delete button on multiple pages. this basically checks
+       *if the user is deleting the deck from the Home or the ViewDeckScreen
+       *inside deckPath folder
+       */
       if (checkLocation.length > 0) {
         history.push("/");
       } else {
-      
-        setAllDecks({})
+        // * re-rendering the page with the new deleted deck data
+        setAllDecks({});
         const data = await listDecks();
         setAllDecks(data);
       }
