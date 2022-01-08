@@ -7,7 +7,11 @@ export default function ListAllCardsForDecks({
   setCurrentDeck,
   deckId,
 }) {
+
+  //edit button url
   const { url } = useRouteMatch();
+  
+  //declaring dynamic word variables for adding cards warning (line 56)
   let cardOrCardsText = "card";
   let isOrAreText = "is";
 
@@ -16,6 +20,7 @@ export default function ListAllCardsForDecks({
     isOrAreText = "are";
   }
 
+  //added a cards needed warning
   if (cards.length === 0) {
     return <h5 className="text-danger">No Cards Added Yet</h5>;
   }

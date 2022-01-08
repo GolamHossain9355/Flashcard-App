@@ -6,7 +6,9 @@ import LoaderAnimation from "../LoaderAnimation";
 import { listDecks } from "../../utils/api";
 
 export default function Home() {
+  //state variables for rendering all of the decks
   const [allDecks, setAllDecks] = useState([]);
+  //state variable that checks if the page has loaded or not
   const [hasLoaded, setHasLoaded] = useState(false);
 
   useEffect(() => {
@@ -18,6 +20,8 @@ export default function Home() {
     loadDecks();
   }, []);
 
+  /*created a warning to let the users create a deck if there are none added using the 
+  hasloaded and allDecks states*/
   if (hasLoaded && allDecks.length === 0) {
     return (
       <div>
@@ -29,6 +33,7 @@ export default function Home() {
     );
   }
 
+  //checks if the api call for decks information from listDecks has returned or not
   if (allDecks.length > 0) {
     return (
       <div>
@@ -60,10 +65,7 @@ export default function Home() {
                     Study
                   </Link>
                 </div>
-                <DeleteDeckBTN
-                  deckId={deck.id}
-                  setAllDecks={setAllDecks}
-                />
+                <DeleteDeckBTN deckId={deck.id} setAllDecks={setAllDecks} />
               </div>
             </div>
           </div>
@@ -71,5 +73,6 @@ export default function Home() {
       </div>
     );
   }
-  return <LoaderAnimation />
+  //loading animation before page renders
+  return <LoaderAnimation />;
 }
