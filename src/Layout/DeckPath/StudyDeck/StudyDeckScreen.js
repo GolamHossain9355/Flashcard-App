@@ -40,8 +40,8 @@ export default function StudyDeckScreen({ deckId }) {
           <Cards currentDeck={currentDeck.cards} />
         ) : (
           <div>
-            <h2>Not enough cards.</h2>
-            <p>
+            <h3 className="text-danger">Not enough cards</h3>
+            <p className="text-warning bg-dark">
               You need at least 3 cards to study. There are{" "}
               {currentDeck.cards.length} cards in this deck.
             </p>

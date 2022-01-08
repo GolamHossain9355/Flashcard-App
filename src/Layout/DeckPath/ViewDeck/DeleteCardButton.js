@@ -1,5 +1,4 @@
 import { deleteCard } from "../../../utils/api";
-import { useHistory } from "react-router-dom";
 
 import { readDeck } from "../../../utils/api";
 

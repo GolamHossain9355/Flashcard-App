@@ -2,12 +2,24 @@ import { Link, useRouteMatch } from "react-router-dom";
 
 import DeleteCardButton from "./DeleteCardButton";
 
-export default function ListAllCardsForDecks({ cards, setCurrentDeck, deckId }) {
+export default function ListAllCardsForDecks({
+  cards,
+  setCurrentDeck,
+  deckId,
+}) {
   const { url } = useRouteMatch();
+  let cardOrCardsText = "card";
+  let isOrAreText = "is";
+
+  if (cards.length > 1) {
+    cardOrCardsText += "s";
+    isOrAreText = "are";
+  }
 
   if (cards.length === 0) {
-    return <h5>No Cards Added Yet</h5>;
+    return <h5 className="text-danger">No Cards Added Yet</h5>;
   }
+
   return (
     <div>
       <h1>Cards</h1>
@@ -36,6 +48,14 @@ export default function ListAllCardsForDecks({ cards, setCurrentDeck, deckId }) 
           </div>
         </div>
       ))}
+      {cards.length < 3 ? (
+        <p className="text-warning bg-dark mt-4">
+          You need at least 3 cards to study. There {isOrAreText} {cards.length}{" "}
+          {cardOrCardsText} in this deck.
+        </p>
+      ) : (
+        <></>
+      )}
     </div>
   );
 }

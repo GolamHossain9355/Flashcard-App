@@ -35,7 +35,7 @@ export default function ViewDeckScreen() {
             <li className="breadcrumb-item active">{currentDeck.name}</li>
           </ol>
         </nav>
-        <h1>{currentDeck.name}</h1>
+        <h3>{currentDeck.name}</h3>
         <p>{currentDeck.description}</p>
         <div className="d-flex justify-content-between">
           <div>

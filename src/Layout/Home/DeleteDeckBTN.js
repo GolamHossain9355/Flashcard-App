@@ -20,6 +20,7 @@ export default function DeleteDeckBTN({
       if (checkLocation.length > 0) {
         history.push("/");
       } else {
+        setAllDecks({})
         const data = await listDecks();
         setAllDecks(data);
       }
