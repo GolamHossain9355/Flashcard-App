@@ -1,6 +1,4 @@
-import { deleteCard } from "../../../utils/api";
-
-import { readDeck } from "../../../utils/api";
+import { readDeck, deleteCard } from "../../utils/api";
 
 export default function DeleteCardButton({ cardId, setCurrentDeck, deckId }) {
   /*

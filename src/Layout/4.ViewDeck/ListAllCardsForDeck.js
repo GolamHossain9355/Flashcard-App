@@ -12,11 +12,11 @@ export default function ListAllCardsForDecks({
 
   //*declaring dynamic word variables for adding cards warning (line 56)
   let cardOrCardsText = "card";
-  let isOrAreText = "is";
+  let isOrAreText = "is only";
 
   if (cards.length > 1) {
     cardOrCardsText += "s";
-    isOrAreText = "are";
+    isOrAreText = "are only";
   }
 
   //*added a cards needed warning
@@ -52,7 +52,7 @@ export default function ListAllCardsForDecks({
           </div>
         </div>
       ))}
-      //*added warning to add more cards to be able to study
+      {/* added warning to add more cards to be able to study */}
       {cards.length < 3 ? (
         <p className="text-warning bg-dark mt-4">
           You need at least 3 cards to study. There {isOrAreText} {cards.length}{" "}

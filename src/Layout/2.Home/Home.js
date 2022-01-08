@@ -2,7 +2,7 @@ import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 
 import DeleteDeckBTN from "./DeleteDeckBTN";
-import LoaderAnimation from "../LoaderAnimation";
+import LoaderAnimation from "../1.ComonFiles/LoaderAnimation";
 import { listDecks } from "../../utils/api";
 
 export default function Home() {

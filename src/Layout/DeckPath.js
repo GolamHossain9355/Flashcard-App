@@ -1,11 +1,11 @@
 import React from "react";
 import { Switch, Route, useRouteMatch, useParams } from "react-router-dom";
 
-import StudyDeckScreen from "./StudyDeck/StudyDeckScreen";
-import ViewDeckScreen from "./ViewDeck/ViewDeckScreen";
-import DeckEditScreen from "./DeckCreateAndEdit/DeckEditScreen";
-import CardCreateScreen from "./CardCreateAndEdit/CardCreateScreen";
-import CardEditScreen from "./CardCreateAndEdit/CardEditScreen";
+import StudyDeckScreen from "./3.StudyDeck/StudyDeckScreen";
+import ViewDeckScreen from "./4.ViewDeck/ViewDeckScreen";
+import DeckEditScreen from "./6.DeckCreateAndEdit/DeckEditScreen";
+import CardCreateScreen from "./5.CardCreateAndEdit/CardCreateScreen";
+import CardEditScreen from "./5.CardCreateAndEdit/CardEditScreen";
 
 export default function DeckPath() {
   const { path } = useRouteMatch();

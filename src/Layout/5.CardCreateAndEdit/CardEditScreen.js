@@ -1,8 +1,8 @@
 import { useState, useEffect } from "react";
 import { useRouteMatch, useParams, useHistory } from "react-router-dom";
 
-import { readDeck, readCard, updateCard } from "../../../utils/api";
-import LoaderAnimation from "../../LoaderAnimation";
+import { readDeck, readCard, updateCard } from "../../utils/api";
+import LoaderAnimation from "../1.ComonFiles/LoaderAnimation";
 import FormForCardCreateAndEdit from "./FormForCardCreateAndEdit";
 
 export default function CardEditScreen() {
