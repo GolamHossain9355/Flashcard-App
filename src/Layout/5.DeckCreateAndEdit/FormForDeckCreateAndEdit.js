@@ -13,11 +13,11 @@ export default function FormForDeckCreateAndEdit({
   *declaring a dynamic text variable, the value depends on 
   *the location(either edit or create deck screen)
   */
-  let  createOrEditDeckText = ""
+  let  createOrEditDeckText = "Create Deck"
 
   if (location === "edit") {
     createOrEditDeckText = "Edit Deck"
-  } else createOrEditDeckText = "Create Deck"
+  }
   
   return (
     <div>

@@ -14,21 +14,16 @@ export default function FormForCardEditAndCreate({
    *Declaring text variables that will change depending on weather
    *the user is in the card edit or create screen (line 20 and 68-75)
    */
-  let doneOrCancelText = "";
-  let saveOrSubmitText = "";
-  let addOrEditCardText = ""
-  let cardEditOrCreateHeaderText = ""
+  let doneOrCancelText = "Cancel";
+  let saveOrSubmitText = "Submit";
+  let addOrEditCardText = `Edit Card ${cardId}`
+  let cardEditOrCreateHeaderText = "Edit Card"
 
   if (url.split().includes(`/decks/${deckId}/cards/new`)) {
     doneOrCancelText = "Done";
     saveOrSubmitText = "Save";
     addOrEditCardText = "Add Card"
     cardEditOrCreateHeaderText = `${name}: Add Card`
-  } else {
-    doneOrCancelText = "Cancel";
-    saveOrSubmitText = "Submit";
-    addOrEditCardText = `Edit Card ${cardId}`
-    cardEditOrCreateHeaderText = "Edit Card"
   }
 
   return (
