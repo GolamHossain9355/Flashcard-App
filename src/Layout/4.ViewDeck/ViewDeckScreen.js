@@ -25,7 +25,7 @@ export default function ViewDeckScreen() {
       setCurrentDeck(deckData);
     }
     loadCurrentDeck();
-  }, []);
+  }, [deckId]);
 
   //*checks if the api call for the deck information from readDeck has returned or not
   if (id) {

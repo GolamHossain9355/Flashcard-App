@@ -26,7 +26,7 @@ export default function StudyDeckScreen({ deckId }) {
       setCurrentDeck(data);
     }
     loadDeck();
-  }, []);
+  }, [deckId]);
 
   //*checks if the api call for the deck information from readDeck has returned or not
   if (currentDeck.id) {

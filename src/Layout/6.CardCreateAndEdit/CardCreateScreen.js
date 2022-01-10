@@ -24,7 +24,7 @@ export default function CardCreateScreen() {
       setDeckToAddCardTo(data);
     }
     loadDeckToAddCardTo();
-  }, []);
+  }, [deckId]);
 
   //getting the new card data from the user
   const handleChange = ({ target }) => {

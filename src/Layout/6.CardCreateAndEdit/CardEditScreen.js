@@ -20,7 +20,7 @@ export default function CardEditScreen() {
       setCurrentDeck(data);
     }
     loadCurrentDeck();
-  }, []);
+  }, [deckId]);
 
   //*getting the card from the deck to edit
   useEffect(() => {
@@ -29,7 +29,7 @@ export default function CardEditScreen() {
       setStoredCardData(data);
     }
     loadStoredCardData();
-  }, []);
+  }, [cardId]);
 
   //*getting the new edited card data from the user 
   const handleUpdatedChange = ({ target }) => {

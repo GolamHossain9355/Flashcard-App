@@ -18,7 +18,7 @@ export default function DeckEditScreen() {
       setOldDeckDataToEdit(dataToEdit);
     }
     loadDeckDataToEdit();
-  }, []);
+  }, [deckId]);
 
   //*putting the new data in
   const handleEditedChange = ({ target }) => {
