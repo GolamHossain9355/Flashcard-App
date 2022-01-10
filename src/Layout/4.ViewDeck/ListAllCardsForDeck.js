@@ -18,10 +18,22 @@ export default function ListAllCardsForDecks({
     cardOrCardsText += "s";
     isOrAreText = "are only";
   }
+  if (cards.length === 0) {
+    cardOrCardsText += "s"
+    isOrAreText = "are"
+  }
 
   //*added a cards needed warning
   if (cards.length === 0) {
-    return <h5 className="text-danger">No Cards Added Yet</h5>;
+    return (
+      <>
+        <h5 className="text-danger">No Cards Added Yet</h5>
+        <p className="text-warning bg-dark mt-4">
+          You need at least 3 cards to study. There {isOrAreText} {cards.length}{" "}
+          {cardOrCardsText} in this deck.
+        </p>
+      </>
+    );
   }
 
   return (

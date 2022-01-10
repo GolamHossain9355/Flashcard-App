@@ -7,8 +7,7 @@ import FormForCardCreateAndEdit from "./FormForCardCreateAndEdit";
 
 export default function CardEditScreen() {
   const { url } = useRouteMatch();
-  const { cardId } = useParams();
-  const { deckId } = useParams();
+  const { cardId, deckId } = useParams();
   const history = useHistory();
 
   const [currentDeck, setCurrentDeck] = useState({});
