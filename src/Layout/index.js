@@ -1,10 +1,10 @@
 import { Route, Switch } from "react-router-dom";
 
-import Header from "./1.ComonFiles/Header";
-import NotFound from "./1.ComonFiles/NotFound";
-import Home from "./2.Home/Home";
+import Header from "./ComonFiles/Header";
+import NotFound from "./ComonFiles/NotFound";
+import Home from "./Home/Home";
 import DeckPath from "./DeckPath";
-import DeckCreateScreen from "./5.DeckCreateAndEdit/DeckCreateScreen"
+import DeckCreateScreen from "./DeckCreateAndEdit/DeckCreateScreen"
 
 function Layout() {
   //*routing to home screen and deckCreate screens and deckPath(this routes to all other files)

@@ -2,7 +2,7 @@ import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 
 import DeleteDeckBTN from "./DeleteDeckBTN";
-import LoaderAnimation from "../1.ComonFiles/LoaderAnimation";
+import LoaderAnimation from "../ComonFiles/LoaderAnimation";
 import { listDecks } from "../../utils/api";
 
 export default function Home() {
@@ -17,7 +17,7 @@ export default function Home() {
     async function loadDecks() {
       const data = await listDecks();
       setAllDecks(data);
-      setHasLoaded(!hasLoaded);
+      setHasLoaded(true);
     }
     loadDecks();
   }, []);

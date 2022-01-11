@@ -2,7 +2,7 @@ import { useState, useEffect } from "react";
 import { useParams, useHistory } from "react-router-dom";
 
 import { readDeck, updateDeck } from "../../utils/api";
-import LoaderAnimation from "../1.ComonFiles/LoaderAnimation";
+import LoaderAnimation from "../ComonFiles/LoaderAnimation";
 import FormForDeckCreateAndEdit from "./FormForDeckCreateAndEdit";
 
 export default function DeckEditScreen() {

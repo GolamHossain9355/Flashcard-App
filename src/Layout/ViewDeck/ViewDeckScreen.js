@@ -3,7 +3,7 @@ import { Link, useParams } from "react-router-dom";
 
 import { readDeck } from "../../utils/api";
 import ListAllCardsForDeck from "./ListAllCardsForDeck";
-import LoaderAnimation from "../1.ComonFiles/LoaderAnimation";
+import LoaderAnimation from "../ComonFiles/LoaderAnimation";
 import DeleteDeckBTN from "../Home/DeleteDeckBTN";
 
 export default function ViewDeckScreen() {
