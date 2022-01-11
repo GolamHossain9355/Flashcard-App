@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import { useRouteMatch, Link } from "react-router-dom";
 
 import CardsForStudyDeckScreen from "./CardsForStudyDeckScreen";
-import LoaderAnimation from "../1.ComonFiles/LoaderAnimation";
+import LoaderAnimation from "../ComonFiles/LoaderAnimation";
 import { readDeck } from "../../utils/api";
 
 export default function StudyDeckScreen({ deckId }) {

@@ -4,7 +4,7 @@ import { Link, useParams } from "react-router-dom";
 import { readDeck } from "../../utils/api";
 import ListAllCardsForDeck from "./ListAllCardsForDeck";
 import LoaderAnimation from "../1.ComonFiles/LoaderAnimation";
-import DeleteDeckBTN from "../2.Home/DeleteDeckBTN";
+import DeleteDeckBTN from "../Home/DeleteDeckBTN";
 
 export default function ViewDeckScreen() {
   //deckId to use in the links
