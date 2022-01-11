@@ -26,7 +26,7 @@ export default function FormForDeckCreateAndEdit({
           <li className="breadcrumb-item">
             <Link to="/">Home</Link>
           </li>
-          {location == "edit" ? (
+          {location === "edit" ? (
             <>
               <li className="breadcrumb-item">
                 <Link to={url}>{formData.name}</Link>
